@@ -1,19 +1,23 @@
 import Undead from '../undead';
 
 test(('class Undead'), () => {
-  const undead = new Undead('Petr', 'Undead');
-  expect(undead.name).toBe('Petr');
-  expect(undead.type).toBe('Undead');
-  expect(undead.health).toBe(100);
-  expect(undead.level).toBe(1);
-  expect(undead.attack).toBe(25);
-  expect(undead.defense).toBe(25);
+  const name = 'Und';
+  const expected = {
+    name,
+    type: 'Undead',
+    health: 100,
+    level: 1,
+    attack: 25,
+    defense: 25,
+  };
+  const undead = new Undead(name);
+  expect(undead).toEqual(expected);
 });
 
-test(('class Undead'), () => {
+test(('class Undead wrong name'), () => {
   expect(() => new Undead('P', 'Undead')).toThrow('field name must have type string & length must be from 2 to 10 character');
 });
 
-test(('class Undead'), () => {
+test(('class Undead wrong type'), () => {
   expect(() => new Undead('Zooker', 'Kriminal')).toThrow('This type Kriminal is wrong');
 });

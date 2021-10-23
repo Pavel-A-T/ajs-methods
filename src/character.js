@@ -3,7 +3,7 @@ export default class Character {
     return ['Bowman', 'Swordsman', 'Magician', 'Daemon', 'Undead', 'Zombie'];
   }
 
-  constructor(name, type, attack, defense) {
+  constructor(name, type) {
     if ((typeof name === 'string') && (name.length >= 2 && name.length <= 10)) {
       this.name = name;
     } else throw new Error('field name must have type string & length must be from 2 to 10 character');
@@ -14,8 +14,6 @@ export default class Character {
 
     this.health = 100;
     this.level = 1;
-    this.attack = attack;
-    this.defense = defense;
   }
 
   levelUp() {
